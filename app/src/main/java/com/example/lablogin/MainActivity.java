@@ -26,25 +26,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     private void initInstances() {
         btnLogin = (Button) findViewById(R.id.btnLogin);
-        etIdEmail = (EditText) findViewById(R.id.etIdEmail);
-        etPass = (EditText) findViewById(R.id.etPass);
         btnLogin.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
+        final String email = etIdEmail.getText().toString();
+        if (!isValidPassword(email)){
+            etIdEmail.setText("ไอดีผิดพลาด");
+        }
         final String pass = etPass.getText().toString();
         if (!isValidPassword(pass)) {
-            etPass.setError("Invalid Password");
+            etPass.setError("รหัสผ่านผิดพลาด");
         }
+    }
+
+    private boolean isValidIdEmail(String email) {
+        String EMAIL_PATERN =
+                "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\p{Punct}]).{9,})";
+        Pattern pattern = Pattern.compile(EMAIL_PATERN);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
     }
     // validating password with retype password
     private boolean isValidPassword(String pass) {
         String PASS_PATERN =
-                "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\p{Punct}]).{6,})";
+                "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\p{Punct}]).{6,})+@+";
         Pattern pattern = Pattern.compile(PASS_PATERN);
         Matcher matcher = pattern.matcher(pass);
         return matcher.matches();
     }
+
 }
