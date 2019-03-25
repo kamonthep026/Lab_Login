@@ -10,6 +10,9 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button btnLogin;
+    EditText etIdEmail;
+    EditText etPass;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,15 +23,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     private void initInstances() {
         btnLogin = (Button) findViewById(R.id.btnLogin);
+        etIdEmail = (EditText) findViewById(R.id.etIdEmail);
+        etPass = (EditText) findViewById(R.id.etPass);
         btnLogin.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
-        if (v == btnLogin){
+        final String pass = etPass.getText().toString();
+        if (!isValidPassword(pass)) {
+            etPass.setError("Invalid Password");
+        }else (v == btnLogin){
             Toast.makeText(MainActivity.this,"รหัสผ่านผิดพลาด",Toast.LENGTH_SHORT).show();
         }
-
+    }
+    // validating password with retype password
+    private boolean isValidPassword(String pass) {
+        String PASS_PATERN =
+                "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\p{Punct}]).{6,})";
+        Pattern pattern = Pattern.compile(PASS_PATERN);
+        Matcher matcher=pattern.matcher(pass);
+        return matcher.matches();
     }
 }
