@@ -7,6 +7,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button btnLogin;
@@ -34,8 +37,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final String pass = etPass.getText().toString();
         if (!isValidPassword(pass)) {
             etPass.setError("Invalid Password");
-        }else (v == btnLogin){
-            Toast.makeText(MainActivity.this,"รหัสผ่านผิดพลาด",Toast.LENGTH_SHORT).show();
         }
     }
     // validating password with retype password
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String PASS_PATERN =
                 "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\p{Punct}]).{6,})";
         Pattern pattern = Pattern.compile(PASS_PATERN);
-        Matcher matcher=pattern.matcher(pass);
+        Matcher matcher = pattern.matcher(pass);
         return matcher.matches();
     }
 }
