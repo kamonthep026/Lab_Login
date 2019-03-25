@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:layout_weight="3"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    android:padding="15dp"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:contentDescription="@null"
+        android:gravity="center"
+        android:src="@drawable/logo" />
+
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/etIdEmail"
+            style="@style/etIdEmail"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:hint="@string/UesrEmail"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:singleLine="true"
+            tools:targetApi="o" />
+
+
+        <EditText
+            android:id="@+id/etPass"
+            style="@style/etPass"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:hint="@string/PassEmail"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            tools:targetApi="o" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/rounded_button"
+            android:text='@string/login'
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:theme="@style/AppTheme" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:contentDescription="@null"
+            android:gravity="center"
+            android:text="@string/Forgot" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="111dp"
+        android:layout_height="19dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/todo"
+        android:longClickable="false"
+        android:scaleType="fitCenter"
+        android:src="@drawable/kd_logo" />
+
+</LinearLayout>

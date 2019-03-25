@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LabLogin</string>
+    <string name="kickdudes">KICKDUDES</string>
+    <string name="login">เข้าสู่ระบบ</string>
+    <string name="UesrEmail">ชื่อผู้ใช้งาน หรือ อีเมล</string>
+    <string name="PassEmail">รหัสผ่าน</string>
+    <string name="Forgot">forgot your password?</string>
+    <string name="todo">TODO</string>
+
+</resources>
