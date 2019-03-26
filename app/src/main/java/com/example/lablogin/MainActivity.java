@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final String email = etIdEmail.getText().toString();
         final String pass = etPass.getText().toString();
         if (!isValidIdEmail(email)){
-            etIdEmail.setError("ไอดีผิดพลาด");
+            etIdEmail.setError("ไม่พบบัญชี Email ของคุณ");
         }
         if(!isValidPassword(pass)) {
             etPass.setError("รหัสผ่านผิดพลาด");
@@ -46,15 +46,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private boolean isValidIdEmail(String email) {
         String EMAIL_PATERN =
-                "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\p{Punct}]).{9,})";
+                "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
         Pattern pattern = Pattern.compile(EMAIL_PATERN);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
+
     // validating password with retype password
     private boolean isValidPassword(String pass) {
         String PASS_PATERN =
-                "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\p{Punct}]).{6,})";
+                "^.{6,}$";
         Pattern pattern = Pattern.compile(PASS_PATERN);
         Matcher matcher = pattern.matcher(pass);
         return matcher.matches();
